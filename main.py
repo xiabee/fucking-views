@@ -1,9 +1,6 @@
 #! /usr/bin/env python3
 # -*- coding:utf-8 -*-
 import requests
-import re
-import base64
-import bs4
 from bs4 import BeautifulSoup
 from time import *
 import io
@@ -48,6 +45,7 @@ def handle(url):
         [script.extract() for script in soup.findAll('script')]
         [style.extract() for style in soup.findAll('style')]
         # 去掉scrip和style
+        
         content = soup.find_all(name='strong',attrs={"class":"NumberBoard-itemValue"},)
         num = []
         for con in content:
@@ -60,7 +58,7 @@ def handle(url):
 if __name__ == "__main__":
     url = 'https://www.zhihu.com/question/417174246'
 
-    for i in range(20):
+    for i in range(10):
         start_time = time()
         handle(url)
         sleep(1)
