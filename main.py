@@ -4,8 +4,6 @@ import requests
 from bs4 import BeautifulSoup
 from time import *
 import io
-import sys
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='utf-8')
 
 # user-agent
 user = {
@@ -58,7 +56,7 @@ def handle(url):
 if __name__ == "__main__":
     url = 'https://www.zhihu.com/question/417174246'
 
-    for i in range(10):
+    while(True):
         start_time = time()
         handle(url)
         sleep(1)
