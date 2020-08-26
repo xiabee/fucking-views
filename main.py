@@ -4,8 +4,10 @@ import requests
 from bs4 import BeautifulSoup
 from time import *
 import io
+from fake_useragent import UserAgent
 
 # user-agent
+
 user = {
     'Host':'www.zhihu.com',
     'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:79.0) Gecko/20100101 Firefox/79.0',
@@ -17,7 +19,10 @@ user = {
     'Upgrade-Insecure-Requests':'1',
     'Cache-Control':'max-age=0',
     'TE':'Trailers',
-}
+} 
+
+ua = UserAgent(verify_ssl=False)
+
 
 def view(url):
     try:
@@ -57,6 +62,7 @@ if __name__ == "__main__":
     url = 'https://www.zhihu.com/question/417174246'
 
     while(True):
+        user['User-Agent'] = ua.random
         start_time = time()
         handle(url)
         sleep(1)
