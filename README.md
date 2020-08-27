@@ -35,17 +35,17 @@ A script of increasing the views of website
   pip3 install requests
   pip3 install bs4
   pip3 install fake_useragent
-```
+  ```
   
-  
+
 
 #### 程序使用方法
 
 * 通过Python3运行`main.py`即可
 
-  ```
+```
   python3 main.py
-  ```
+```
 
 
 
@@ -62,7 +62,7 @@ A script of increasing the views of website
 
 #### 测试返回
 
-```
+  ```
 Followers:508   Views:318,230   running time:1.559s
 Followers:508   Views:318,230   running time:1.549s
 Followers:508   Views:318,230   running time:1.225s
@@ -73,7 +73,5 @@ Followers:508   Views:318,230   running time:1.656s
 Followers:508   Views:318,230   running time:1.242s
 Followers:508   Views:318,291   running time:1.557s
 Followers:508   Views:318,291   running time:1.287s
-```
-
-
+  ```
 
