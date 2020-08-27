@@ -3,8 +3,8 @@
 import requests
 from bs4 import BeautifulSoup
 from time import *
-from fake_useragent import UserAgent
-ua = UserAgent()
+# from fake_useragent import UserAgent
+# ua = UserAgent()
 # 使用 fake ua 以突破反爬机制
 # ua.update()
 # fake经常404，fake功能暂时关闭，后续fake正在开发
