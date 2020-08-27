@@ -67,8 +67,8 @@ if __name__ == "__main__":
         user['User-Agent'] = ua.random
         handle(url)
         a = random.uniform(0.1,0.5)
+        sleep(a)
         # 防反爬，生成随机时间间隔
-        
         end_time = time()
         running_time = end_time - start_time
         print("running time:{:.4}s".format(running_time))
