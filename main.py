@@ -7,9 +7,6 @@ import random
 from fake_useragent import UserAgent
 
 ua = UserAgent()
-# with open('fake_ua.txt', 'r') as f:
-#     fake_ua = [fua.strip() for fua in f.readlines()]
-# ua = random.choice(fake_ua)
 
 # user-agent
 user = {
@@ -57,7 +54,7 @@ def handle(url):
             num.append(x_num)
         print("Followers:{viewer}\tViews:{view}\t".format(viewer=num[0],view=num[1]), end='')
     except:
-        pass
+        return 0
 
 if __name__ == "__main__":
     url = 'https://www.zhihu.com/question/417174246'
@@ -65,10 +62,12 @@ if __name__ == "__main__":
     while(True):
         start_time = time()
         user['User-Agent'] = ua.random
-        handle(url)
+        flag = handle(url)
         a = random.uniform(0.1,0.5)
+        sleep(0.5)
         sleep(a)
         # 防反爬，生成随机时间间隔
         end_time = time()
         running_time = end_time - start_time
-        print("running time:{:.4}s".format(running_time))
+        if flag!=0:
+            print("running time:{:.4}s".format(running_time))
