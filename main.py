@@ -6,13 +6,13 @@ from time import *
 from fake_useragent import UserAgent
 ua = UserAgent()
 # 使用 fake ua 以突破反爬机制
-ua.update()
-# 手动更新fake ua
+# ua.update()
+# fake经常404，fake功能暂时关闭，后续fake正在开发
 
 # user-agent
 user = {
     'Host':'www.zhihu.com',
-    'User-Agent':ua.random,
+    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36',
     'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
     'Accept-Language':'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
     'Accept-Encoding':'gzip, deflate,',
