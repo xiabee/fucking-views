@@ -4,7 +4,9 @@ import requests
 from bs4 import BeautifulSoup
 from time import *
 import random
+from fake_useragent import UserAgent
 
+ua = UserAgent()
 # with open('fake_ua.txt', 'r') as f:
 #     fake_ua = [fua.strip() for fua in f.readlines()]
 # ua = random.choice(fake_ua)
@@ -62,9 +64,11 @@ if __name__ == "__main__":
 
     while(True):
         start_time = time()
+        user['User-Agent'] = ua.random
         handle(url)
         a = random.uniform(0.1,0.5)
         # 防反爬，生成随机时间间隔
+        
         end_time = time()
         running_time = end_time - start_time
         print("running time:{:.4}s".format(running_time))
