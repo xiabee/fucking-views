@@ -3,11 +3,11 @@
 import requests
 from bs4 import BeautifulSoup
 from time import *
-# from fake_useragent import UserAgent
-# ua = UserAgent()
-# 使用 fake ua 以突破反爬机制
-# ua.update()
-# fake经常404，fake功能暂时关闭，后续fake正在开发
+import random
+
+# with open('fake_ua.txt', 'r') as f:
+#     fake_ua = [fua.strip() for fua in f.readlines()]
+# ua = random.choice(fake_ua)
 
 # user-agent
 user = {
@@ -63,8 +63,8 @@ if __name__ == "__main__":
     while(True):
         start_time = time()
         handle(url)
-        sleep(1)
-        # 防反爬，不能过快
+        a = random.uniform(0.1,0.5)
+        # 防反爬，生成随机时间间隔
         end_time = time()
         running_time = end_time - start_time
         print("running time:{:.4}s".format(running_time))
