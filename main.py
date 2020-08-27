@@ -3,12 +3,16 @@
 import requests
 from bs4 import BeautifulSoup
 from time import *
-import io
+from fake_useragent import UserAgent
+ua = UserAgent()
+# 使用 fake ua 以突破反爬机制
+ua.update()
+# 手动更新fake ua
 
 # user-agent
 user = {
     'Host':'www.zhihu.com',
-    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:79.0) Gecko/20100101 Firefox/79.0',
+    'User-Agent':ua.random,
     'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
     'Accept-Language':'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
     'Accept-Encoding':'gzip, deflate,',
