@@ -22,13 +22,15 @@ user = {
     'TE':'Trailers',
 }
 proxies = {
-    'http': '127.0.0.1:9090',
-    'https': '127.0.0.1:9090'
- }
+    'http': '36.248.129.84:9999',
+    'https': '36.248.129.84:9999'
+}
+
+
 
 def view(url):
     try:
-        res = requests.get(url, headers = user, )
+        res = requests.get(url, headers = user, proxies = proxies)
         status = res.status_code
         # print(status)
         if status != 200:
@@ -52,6 +54,8 @@ def handle(url):
         # 去掉scrip和style
         
         content = soup.find_all(name='strong',attrs={"class":"NumberBoard-itemValue"},)
+        # 寻找流量次数
+        
         num = []
         for con in content:
             x_num = con.get_text()

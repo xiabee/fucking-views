@@ -7,8 +7,9 @@ A script of increasing the views of website
 #### 版本更新
 
 * version：0.2
-* time：2020.8.28 10:53
+* time：2020.8.28 23:41
 * 更新内容：新增**IP代理池**，减少被封IP的风险；由于`fake_useragent`不稳定，经常404，暂时下线ua池
+* 取消代理：`view`函数中，将`res = requests.get(url, headers = user, proxies = proxies)`改为`res = requests.get(url, headers = user)`
 * 稳定版多UA池和动态代理池正在开发中
 
 
@@ -59,6 +60,7 @@ A script of increasing the views of website
 #### 程序不足
 
 * 多UA，多IP，在写了，在写了
+* 静态代理池通信不稳定，容易被封代理，延迟也比较高
 
 #### 测试返回
 
