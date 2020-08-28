@@ -21,10 +21,14 @@ user = {
     'Cache-Control':'max-age=0',
     'TE':'Trailers',
 }
+proxies = {
+    'http': '127.0.0.1:9090',
+    'https': '127.0.0.1:9090'
+ }
 
 def view(url):
     try:
-        res = requests.get(url, headers = user)
+        res = requests.get(url, headers = user, )
         status = res.status_code
         # print(status)
         if status != 200:
@@ -59,10 +63,29 @@ def handle(url):
 if __name__ == "__main__":
     url = 'https://www.zhihu.com/question/417174246'
 
+    file = './proxy.txt'
+    f = open(file,mode='r',encoding='utf-8')
+    proxy = []
+    for line in f:
+        line=line.strip('\n')
+        proxy.append(line)
+    # 代理池
+
     while(True):
+        # user['User-Agent'] = ua.random
+        # ua池
+
+        tmp_proxy = proxy[random.randint(0,len(proxy)-1)]
+        proxies ={
+            'http':tmp_proxy,
+            'https':tmp_proxy,
+        }
+        # 代理池
+
         start_time = time()
-        user['User-Agent'] = ua.random
         flag = handle(url)
+        # 记录是否爬取成功
+
         a = random.uniform(0.1,0.5)
         sleep(0.5)
         sleep(a)
@@ -70,4 +93,4 @@ if __name__ == "__main__":
         end_time = time()
         running_time = end_time - start_time
         if flag!=0:
-            print("running time:{:.4}s".format(running_time))
+            print("requesting time:{:.4}s\tproxy:{}".format(running_time,tmp_proxy))
